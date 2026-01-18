@@ -15,3 +15,10 @@ steps:
     rootFolderOrFile: '$(build.sourcesDirectory)'
     includeRootFolder: false
 - task: PublishBuildArtifacts@1
+
+- task: CopyFilesOverSSH@0
+  inputs:
+    sshEndpoint: 'vm'
+    contents: '**'
+    targetFolder: '/var/www/html'
+    readyTimeout: '20000'
